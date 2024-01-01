@@ -25,7 +25,7 @@ router.post('/register', async (req, res) => {
     }
 })
 
-router.get('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
     const user = await Auth.findOne({ email: req.body.email })
     if (!user) {
         return res.status(200).json({ message: "Account not found" })
