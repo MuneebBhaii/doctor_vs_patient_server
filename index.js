@@ -8,6 +8,13 @@ app.use(cors())
 mongoose.connect(process.env.CONNECTION_STRING)
 const db = mongoose.connection;
 
+app.use(cors(
+  {
+    origin:["https://deploy-mern-!whq.vercel.app"],
+    methods:["GET", "POST"],
+    credentials:true
+}
+));
 app.use(express.json())
 // routes
 const userAuth = require("./src/routes/authRoutes")
